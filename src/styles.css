@@ -1,0 +1,139 @@
+/* You can add global styles to this file, and also import other style files */
+main#main-container {
+    color: gainsboro;
+    max-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15vh auto 1fr 15vh;
+    grid-template-areas:
+        "my-header"
+        "my-nav"
+        "my-section"
+        "my-footer";
+}
+
+header#main-header {
+    grid-area: my-header;
+    background-color: blueviolet;
+    position: relative;
+}
+
+nav#main-nav {
+    grid-area: my-nav;
+    background-color: cornflowerblue;
+    display: block;
+}
+
+    nav#main-nav > div {
+        display: inline;
+        margin: 10px;
+    }
+
+img.menu-item-icon {
+    width: 30px;
+    height: 30px;
+}
+
+div#html-dynamic-content {
+    grid-area: my-section;
+    background-color: indigo;
+}
+
+footer#main-footer {
+    grid-area: my-footer;
+    background-color: darkorchid;
+}
+
+img#icon-menu {
+    position: absolute;
+    display: none;
+}
+
+@media (min-width: 400px) and (max-width: 1000px) {
+    main#main-container {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 15vh 1fr 15vh;
+        grid-template-areas:
+            "my-header my-header"
+            "my-nav my-section"
+            "my-footer my-footer";
+    }
+
+    nav#main-nav > div {
+        display: block;
+        margin: 10px 20px 10px 10px;
+    }
+
+    img#icon-menu {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        cursor: pointer;
+        transform: rotate(90deg);
+    }
+
+    .nav-visible {
+        position: relative;
+        animation-name: nav-slide-in;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+    }
+
+    .nav-oculto {
+        position: absolute;
+        display: none !important;
+    }
+
+    .img-rotar {
+        animation-name: rotar;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    .img-rotar-neg {
+        animation-name: rotar;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-direction: reverse;
+    }
+
+    @keyframes nav-slide-in {
+        from {
+            margin-left: -15%;
+            width: 0vw;
+        }
+
+        to {
+            margin-left: 0vw;
+            width: 15vw;
+        }
+    }
+
+    @keyframes rotar {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(90deg);
+        }
+    }
+
+    @keyframes rotar-neg {
+        from {
+            transform: rotate(90deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+}
