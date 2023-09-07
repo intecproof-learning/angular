@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    color: black;
+}
+
 main#main-container {
     color: gainsboro;
     max-width: 100vw;
@@ -25,10 +29,10 @@ nav#main-nav {
     display: block;
 }
 
-    nav#main-nav > div {
-        display: inline;
-        margin: 10px;
-    }
+nav#main-nav>div {
+    display: inline;
+    margin: 10px;
+}
 
 img.menu-item-icon {
     width: 30px;
@@ -60,7 +64,7 @@ img#icon-menu {
             "my-footer my-footer";
     }
 
-    nav#main-nav > div {
+    nav#main-nav>div {
         display: block;
         margin: 10px 20px 10px 10px;
     }

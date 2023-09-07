@@ -1,71 +1,63 @@
 <h1>Mercadito virtual de Finanzas - Contacto</h1>
-<form name="contacto-formulario" action="#"
-      method="GET|PUT|POST|DELETE"
-      onsubmit="return contacto_validarFormulario()"
-      style="display:inline-block; width: 45vw;
+<form [formGroup]="_form" (ngSubmit)="submit()" style="display:inline-block; width: 45vw;
     outline: 1px solid yellow;">
 
     <div style="display: inline-block; width: 100%">
-        <label style="display:inline-block; width: 40%"
-               id="contacto-lbl-nombre" for="contacto-inp-nombre">
+        <label style="display:inline-block; width: 40%" id="contacto-lbl-nombre" for="contacto-inp-nombre">
             Nombre
         </label>
-        <input style="display: inline-block; width: 50%"
-               id="contacto-inp-nombre" name="FullName" type="text"
-               placeholder="Escriba su nombre completo"
-               required maxlength="50" minlength="5" />
+        <input style="display: inline-block; width: 50%" formControlName="nombre" id="nombre" name="nombre" type="text"
+            placeholder="Escriba su nombre completo" required maxlength="50" minlength="5" />
+        <div *ngIf="form['nombre'].touched && form['nombre'].invalid">
+            <div *ngIf="form['nombre'].errors && form['nombre'].errors['required']">
+                El nombre es requerido</div>
+        </div>
     </div>
 
     <div style="display: inline-block; width: 100%">
-        <label  style="display:inline-block; width: 40%" id="contacto-lbl-email" for="contacto-inp-email">
+        <label style="display:inline-block; width: 40%" id="contacto-lbl-email" for="contacto-inp-email">
             Correo Electrónico
         </label>
-        <input  style="display: inline-block; width: 50%"
-               id="contacto-inp-email" name="Email" type="email"
-               placeholder="Escriba su correo electrónico"
-               required maxlength="50" minlength="5" />
+        <input style="display: inline-block; width: 50%" formControlName="email" id="email" name="email" type="email"
+            placeholder="Escriba su correo electrónico" required maxlength="50" minlength="5" />
+        <div *ngIf="form['email'].touched && form['email'].invalid">
+            <div *ngIf="form['email'].errors && form['email'].errors['required']">
+                El email es requerido</div>
+        </div>
     </div>
 
     <div>
         <label id="contacto-lbl-mensaje" for="contacto-inp-mensaje">
             Mensaje
         </label>
-        <textarea id="contacto-inp-mensaje" name="Mensaje"
-                  placeholder="Escriba el mensaje a enviar"
-                  required maxlength="250" minlength="5"></textarea>
+        <textarea id="contacto-inp-mensaje" name="Mensaje" placeholder="Escriba el mensaje a enviar" required
+            maxlength="250" minlength="5"></textarea>
     </div>
 
     <div>
-        <label id="contacto-lbl-asunto"
-               for="contacto-inp-asunto-pregunta">
+        <label id="contacto-lbl-asunto" for="contacto-inp-asunto-pregunta">
             Asunto
         </label>
         <div>
             <div>
-                <label id="contacto-lbl-asunto-sugerencia"
-                       for="contacto-inp-asunto-sugerencia">
+                <label id="contacto-lbl-asunto-sugerencia" for="contacto-inp-asunto-sugerencia">
                     Sugerencia
                 </label>
-                <input id="contacto-inp-asunto-sugerencia" type="radio"
-                       required value="Sugerencia" name="Asunto" />
+                <input id="contacto-inp-asunto-sugerencia" type="radio" required value="Sugerencia" name="Asunto" />
             </div>
 
             <div>
-                <label id="contacto-lbl-asunto-reporte"
-                       for="contacto-inp-asunto-reporte">
+                <label id="contacto-lbl-asunto-reporte" for="contacto-inp-asunto-reporte">
                     Reporte
                 </label>
-                <input id="contacto-inp-asunto-reporte" type="radio"
-                       required value="Reporte" name="Asunto" />
+                <input id="contacto-inp-asunto-reporte" type="radio" required value="Reporte" name="Asunto" />
             </div>
 
             <div>
-                <label id="contacto-lbl-asunto-pregunta"
-                       for="contacto-inp-asunto-pregunta">
+                <label id="contacto-lbl-asunto-pregunta" for="contacto-inp-asunto-pregunta">
                     Pregunta
                 </label>
-                <input id="contacto-inp-asunto-pregunta" type="radio"
-                       required value="Pregunta" name="Asunto" />
+                <input id="contacto-inp-asunto-pregunta" type="radio" required value="Pregunta" name="Asunto" />
             </div>
         </div>
     </div>
@@ -74,16 +66,14 @@
         <label id="contacto-lbl-contactar" for="contacto-inp-contactar">
             ¿Deseas que te contactemos?
         </label>
-        <input id="contacto-inp-contactar" type="checkbox"
-               value="Contactar" name="Contactar" />
+        <input id="contacto-inp-contactar" type="checkbox" value="Contactar" name="Contactar" />
     </div>
 
     <div>
         <label id="contacto-lbl-noticias" for="contacto-inp-noticias">
             ¿Deseas recibir noticias?
         </label>
-        <input id="contacto-inp-noticias" type="checkbox"
-               value="Noticias" name="Noticias" />
+        <input id="contacto-inp-noticias" type="checkbox" value="Noticias" name="Noticias" />
     </div>
 
     <div>
@@ -98,7 +88,7 @@
             <option value="4">Bajo</option>
         </select>
     </div>
-    <input type="submit" value="Enviar" />
+    <input type="submit" value="Enviar" [disabled]="!_form.valid" />
 </form>
 
 <div id="map" style="height: 200px; width: 50%;

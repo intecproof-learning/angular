@@ -8,6 +8,8 @@ import { ListarComponent } from './listar/listar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
 import { EditarComponent } from './editar/editar.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EditarComponent } from './editar/editar.component';
   ],
   imports: [
     CommonModule,
-    ContactoRoutingModule
+    ContactoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ContactoModule { }
