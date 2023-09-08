@@ -10,7 +10,7 @@ import { Icontacto } from './icontacto';
   providedIn: 'root'
 })
 export class ContactoService {
-  private apiURL = ''
+  private apiURL = 'http://localhost:51321/'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
@@ -24,7 +24,7 @@ export class ContactoService {
   }
 
   create(post: Icontacto): Observable<any> {
-    return this.httpClient.post(this.apiURL + '', JSON.stringify(post),
+    return this.httpClient.post(this.apiURL + 'api/contacto/crear', JSON.stringify(post),
       this.httpOptions).pipe(catchError(this.errorHandler));
   }
 
