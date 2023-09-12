@@ -1,1 +1,12 @@
-<p>index works!</p>
+<h1>Listado de solicitudes de contacto</h1>
+
+<a href="#" routerLink="/contacto/crear">
+    Crear una nueva solicitud</a>
+
+    <ul>
+        <li *ngFor="let item of requests">
+            <strong>{{ item.id }}</strong>
+            <strong>{{ item.nombre }}</strong>
+            <strong>{{ item.email }}</strong>
+        </li>
+    </ul>

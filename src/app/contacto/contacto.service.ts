@@ -19,7 +19,7 @@ export class ContactoService {
   }
 
   getAll(): Observable<any> {
-    return this.httpClient.get(this.apiURL + '')
+    return this.httpClient.get(this.apiURL + 'api/contacto/obtener')
       .pipe(catchError(this.errorHandler));
   }
 
