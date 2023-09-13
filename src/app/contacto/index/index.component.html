@@ -3,10 +3,25 @@
 <a href="#" routerLink="/contacto/crear">
     Crear una nueva solicitud</a>
 
-    <ul>
-        <li *ngFor="let item of requests">
-            <strong>{{ item.id }}</strong>
-            <strong>{{ item.nombre }}</strong>
-            <strong>{{ item.email }}</strong>
-        </li>
-    </ul>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of requests">
+            <th>{{ item.id }}</th>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+                | <a href="#" [routerLink]="['/contacto/listar']">Detalle</a> | 
+                <a href="#" [routerLink]="['/contacto/editar']">Editar</a> | 
+                <a href="#" [routerLink]="['/contacto/eliminar']">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
