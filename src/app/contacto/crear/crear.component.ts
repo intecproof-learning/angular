@@ -16,8 +16,16 @@ export class CrearComponent implements OnInit {
 
   ngOnInit(): void {
     this._form = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required])
+      nombre: new FormControl('', [Validators.required,
+        Validators.maxLength(50), Validators.minLength(5)]),
+      email: new FormControl('', [Validators.required,
+        Validators.maxLength(50), Validators.minLength(5), Validators.email]),
+      mensaje: new FormControl('', [Validators.required,
+        Validators.maxLength(1000), Validators.minLength(5)]),
+      asunto: new FormControl('Sugerencia'),
+      contactar: new FormControl(true),
+      noticias: new FormControl(false),
+      prioridad: new FormControl(4)
     });
   }
 

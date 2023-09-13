@@ -10,7 +10,14 @@
             placeholder="Escriba su nombre completo" required maxlength="50" minlength="5" />
         <div *ngIf="form['nombre'].touched && form['nombre'].invalid">
             <div *ngIf="form['nombre'].errors && form['nombre'].errors['required']">
-                El nombre es requerido</div>
+                El nombre es requerido
+            </div>
+            <div *ngIf="form['nombre'].errors && form['nombre'].errors['maxlength']">
+                El número máximo de caracteres es de 50
+            </div>
+            <div *ngIf="form['nombre'].errors && form['nombre'].errors['minlength']">
+                El número mínimo de caracteres es de 5
+            </div>
         </div>
     </div>
 
@@ -22,7 +29,17 @@
             placeholder="Escriba su correo electrónico" required maxlength="50" minlength="5" />
         <div *ngIf="form['email'].touched && form['email'].invalid">
             <div *ngIf="form['email'].errors && form['email'].errors['required']">
-                El email es requerido</div>
+                El email es requerido
+            </div>
+            <div *ngIf="form['email'].errors && form['email'].errors['email']">
+                Debe capturar un correo electrónico válido
+            </div>
+            <div *ngIf="form['email'].errors && form['email'].errors['maxlength']">
+                El número máximo de caracteres es de 50
+            </div>
+            <div *ngIf="form['email'].errors && form['email'].errors['minlength']">
+                El número mínimo de caracteres es de 5
+            </div>
         </div>
     </div>
 
@@ -30,8 +47,8 @@
         <label id="contacto-lbl-mensaje" for="contacto-inp-mensaje">
             Mensaje
         </label>
-        <textarea id="contacto-inp-mensaje" name="Mensaje" placeholder="Escriba el mensaje a enviar" required
-            maxlength="250" minlength="5"></textarea>
+        <textarea formControlName="mensaje" id="mensaje" name="mensaje" placeholder="Escriba el mensaje a enviar"
+            required maxlength="250" minlength="5"></textarea>
     </div>
 
     <div>
@@ -43,21 +60,24 @@
                 <label id="contacto-lbl-asunto-sugerencia" for="contacto-inp-asunto-sugerencia">
                     Sugerencia
                 </label>
-                <input id="contacto-inp-asunto-sugerencia" type="radio" required value="Sugerencia" name="Asunto" />
+                <input formControlName="asunto" id="contacto-inp-asunto-sugerencia" type="radio" required
+                    value="Sugerencia" name="asunto" />
             </div>
 
             <div>
                 <label id="contacto-lbl-asunto-reporte" for="contacto-inp-asunto-reporte">
                     Reporte
                 </label>
-                <input id="contacto-inp-asunto-reporte" type="radio" required value="Reporte" name="Asunto" />
+                <input id="contacto-inp-asunto-reporte" type="radio" required value="Reporte" name="asunto"
+                    formControlName="asunto" />
             </div>
 
             <div>
                 <label id="contacto-lbl-asunto-pregunta" for="contacto-inp-asunto-pregunta">
                     Pregunta
                 </label>
-                <input id="contacto-inp-asunto-pregunta" type="radio" required value="Pregunta" name="Asunto" />
+                <input id="contacto-inp-asunto-pregunta" type="radio" required value="Pregunta" name="asunto"
+                    formControlName="asunto" />
             </div>
         </div>
     </div>
@@ -66,21 +86,22 @@
         <label id="contacto-lbl-contactar" for="contacto-inp-contactar">
             ¿Deseas que te contactemos?
         </label>
-        <input id="contacto-inp-contactar" type="checkbox" value="Contactar" name="Contactar" />
+        <input id="contacto-inp-contactar" type="checkbox" value="Contactar" formControlName="contactar"
+            name="contactar" />
     </div>
 
     <div>
         <label id="contacto-lbl-noticias" for="contacto-inp-noticias">
             ¿Deseas recibir noticias?
         </label>
-        <input id="contacto-inp-noticias" type="checkbox" value="Noticias" name="Noticias" />
+        <input id="contacto-inp-noticias" type="checkbox" value="Noticias" formControlName="noticias" name="noticias" />
     </div>
 
     <div>
         <label id="contacto-lbl-propridad" for="contacto-inp-propridad">
             Prioridad del mensaje
         </label>
-        <select id="contacto-inp-propridad" name="Prioridad">
+        <select id="contacto-inp-propridad" formControlName="prioridad" name="prioridad">
             <option value="0">Seleccione un elemento de la lista</option>
             <option value="1">Crítico</option>
             <option value="2">Alto</option>
