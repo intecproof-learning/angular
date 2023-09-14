@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: 'c/c', redirectTo: 'contacto/crear', pathMatch: 'full' },
   { path: 'contacto/index', component: IndexComponent },
   { path: 'contacto/crear', component: CrearComponent },
-  { path: 'contacto/listar', component: ListarComponent },
-  { path: 'contacto/editar', component: EditarComponent },
-  { path: 'contacto/eliminar', component: EliminarComponent }
+  { path: 'contacto/:requestID/listar', component: ListarComponent },
+  { path: 'contacto/:requestID/editar', component: EditarComponent },
+  { path: 'contacto/:requestID/eliminar', component: EliminarComponent }
 ];
 
 @NgModule({

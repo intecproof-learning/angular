@@ -18,9 +18,9 @@
             <td>{{ item.nombre }}</td>
             <td>{{ item.email }}</td>
             <td>
-                | <a href="#" [routerLink]="['/contacto/listar']">Detalle</a> | 
-                <a href="#" [routerLink]="['/contacto/editar']">Editar</a> | 
-                <a href="#" [routerLink]="['/contacto/eliminar']">Eliminar</a>
+                | <a href="#" [routerLink]="['/contacto/', item.id, 'listar']">Detalle</a> |
+                <a href="#" [routerLink]="['/contacto/', item.id, 'editar']">Editar</a> |
+                <a href="#" [routerLink]="['/contacto/', item.id, 'eliminar']">Eliminar</a>
             </td>
         </tr>
     </tbody>
