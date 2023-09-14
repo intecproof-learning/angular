@@ -1,1 +1,39 @@
-<p>listar works!</p>
+<h1>Detalle {{ this.cRequest.id }} - {{ this.cRequest.nombre }} </h1>
+
+<div>
+    ID: <span>{{ this.cRequest.id }}</span>
+</div>
+
+<div>
+    Nombre: <span>{{ this.cRequest.nombre }}</span>
+</div>
+
+<div>
+    Correo eletrónico: <span>{{ this.cRequest.email }}</span>
+</div>
+
+<div>
+    Asunto: <span>{{ this.cRequest.asunto }}</span>
+</div>
+
+<div>
+    Mensaje: <span>{{ this.cRequest.mensaje }}</span>
+</div>
+
+<div>
+    ¿Desea recibir noticias?: <span>{{ this.cRequest.noticias }}</span>
+</div>
+
+<div>
+    ¿Desea ser contactado?: <span>{{ this.cRequest.contactar }}</span>
+</div>
+
+<div>
+    Prioridad: <span>{{ this.cRequest.prioridad }}</span>
+</div>
+
+<div>
+    | <a href="#" [routerLink]="['/contacto/index']">Regresar al listado</a> |
+    <a href="#" [routerLink]="['/contacto/', cRequest.id, 'editar']">Editar</a> |
+    <a href="#" [routerLink]="['/contacto/', cRequest.id, 'eliminar']">Eliminar</a> 
+</div>

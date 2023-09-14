@@ -23,6 +23,11 @@ export class ContactoService {
       .pipe(catchError(this.errorHandler));
   }
 
+  find(requestID: number): Observable<any>{
+    return this.httpClient.get(this.apiURL + 'api/contacto/obtener/' + requestID)
+      .pipe(catchError(this.errorHandler));
+  }
+
   create(post: Icontacto): Observable<any> {
     return this.httpClient.post(this.apiURL + 'api/contacto/crear', JSON.stringify(post),
       this.httpOptions).pipe(catchError(this.errorHandler));

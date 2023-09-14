@@ -9,8 +9,8 @@ import { Icontacto } from '../icontacto';
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
-
   requestID!: number;
+  cRequest!: Icontacto;
 
   constructor(
     public contactoService: ContactoService,
@@ -21,5 +21,10 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.requestID = this.route.snapshot.params['requestID']
     console.log(this.requestID)
+
+    this.contactoService.find(this.requestID).subscribe((data: Icontacto) => {
+      console.log(data);
+      this.cRequest = data;
+    });
   }
 }
