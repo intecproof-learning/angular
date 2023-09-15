@@ -33,8 +33,9 @@ export class ContactoService {
       this.httpOptions).pipe(catchError(this.errorHandler));
   }
 
-  update(id: number, post: Icontacto): Observable<any> {
-    return this.httpClient.put(this.apiURL + '' + id, JSON.stringify(post),
+  update(requestID: number, post: Icontacto): Observable<any> {
+    return this.httpClient.put(this.apiURL + 'api/contacto/actualizar/' + requestID,
+    JSON.stringify(post),
       this.httpOptions).pipe(catchError(this.errorHandler));
   }
 

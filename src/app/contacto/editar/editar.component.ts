@@ -40,21 +40,7 @@ export class EditarComponent implements OnInit {
     this.contactoService.find(this.requestID).subscribe((data: Icontacto) => {
       console.log(data);
       this.cRequest = data;
-
-      this._form = new FormGroup({
-        nombre: new FormControl(this.cRequest.nombre, [Validators.required,
-        Validators.maxLength(50), Validators.minLength(5)]),
-        email: new FormControl(this.cRequest.email, [Validators.required,
-        Validators.maxLength(50), Validators.minLength(5), Validators.email]),
-        mensaje: new FormControl(this.cRequest.mensaje, [Validators.required,
-        Validators.maxLength(1000), Validators.minLength(5)]),
-        asunto: new FormControl(this.cRequest.asunto),
-        contactar: new FormControl(this.cRequest.contactar),
-        noticias: new FormControl(this.cRequest.noticias),
-        prioridad: new FormControl(this.cRequest.prioridad)
-      });
     });
-    
   }
 
   get form() {
@@ -63,10 +49,10 @@ export class EditarComponent implements OnInit {
 
   submit() {
     console.log(this._form.value);
-    /*this.contactoService.update(this._form.value).subscribe((res: any) => {
+    this.contactoService.update(this.requestID, this._form.value).subscribe((res: any) => {
       console.log('Elemento creado');
       this.router.navigateByUrl('contacto/index');
-    });*/
+    });
   }
 
 }

@@ -6,8 +6,9 @@
         <label style="display:inline-block; width: 40%" id="contacto-lbl-nombre" for="contacto-inp-nombre">
             Nombre
         </label>
-        <input style="display: inline-block; width: 50%" formControlName="nombre" id="nombre" name="nombre" type="text"
-            placeholder="Escriba su nombre completo" required maxlength="50" minlength="5" />
+        <input style="display: inline-block; width: 50%" [(ngModel)]="cRequest.nombre" formControlName="nombre"
+            id="nombre" name="nombre" type="text" placeholder="Escriba su nombre completo" required maxlength="50"
+            minlength="5" />
         <div *ngIf="form['nombre'].touched && form['nombre'].invalid">
             <div *ngIf="form['nombre'].errors && form['nombre'].errors['required']">
                 El nombre es requerido
@@ -25,8 +26,9 @@
         <label style="display:inline-block; width: 40%" id="contacto-lbl-email" for="contacto-inp-email">
             Correo Electrónico
         </label>
-        <input style="display: inline-block; width: 50%" formControlName="email" id="email" name="email" type="email"
-            placeholder="Escriba su correo electrónico" required maxlength="50" minlength="5" />
+        <input style="display: inline-block; width: 50%" [(ngModel)]="cRequest.email" formControlName="email" id="email"
+            name="email" type="email" placeholder="Escriba su correo electrónico" required maxlength="50"
+            minlength="5" />
         <div *ngIf="form['email'].touched && form['email'].invalid">
             <div *ngIf="form['email'].errors && form['email'].errors['required']">
                 El email es requerido
@@ -47,8 +49,8 @@
         <label id="contacto-lbl-mensaje" for="contacto-inp-mensaje">
             Mensaje
         </label>
-        <textarea formControlName="mensaje" id="mensaje" name="mensaje" placeholder="Escriba el mensaje a enviar"
-            required maxlength="250" minlength="5"></textarea>
+        <textarea [(ngModel)]="cRequest.mensaje" formControlName="mensaje" id="mensaje" name="mensaje"
+            placeholder="Escriba el mensaje a enviar" required maxlength="250" minlength="5"></textarea>
     </div>
 
     <div>
@@ -60,8 +62,8 @@
                 <label id="contacto-lbl-asunto-sugerencia" for="contacto-inp-asunto-sugerencia">
                     Sugerencia
                 </label>
-                <input formControlName="asunto" id="contacto-inp-asunto-sugerencia" type="radio" required
-                    value="Sugerencia" name="asunto" />
+                <input [(ngModel)]="cRequest.asunto" formControlName="asunto" id="contacto-inp-asunto-sugerencia"
+                    type="radio" required value="Sugerencia" name="asunto" />
             </div>
 
             <div>
@@ -69,7 +71,7 @@
                     Reporte
                 </label>
                 <input id="contacto-inp-asunto-reporte" type="radio" required value="Reporte" name="asunto"
-                    formControlName="asunto" />
+                    [(ngModel)]="cRequest.asunto" formControlName="asunto" />
             </div>
 
             <div>
@@ -77,7 +79,7 @@
                     Pregunta
                 </label>
                 <input id="contacto-inp-asunto-pregunta" type="radio" required value="Pregunta" name="asunto"
-                    formControlName="asunto" />
+                    [(ngModel)]="cRequest.asunto" formControlName="asunto" />
             </div>
         </div>
     </div>
@@ -86,22 +88,24 @@
         <label id="contacto-lbl-contactar" for="contacto-inp-contactar">
             ¿Deseas que te contactemos?
         </label>
-        <input id="contacto-inp-contactar" type="checkbox" value="Contactar" formControlName="contactar"
-            name="contactar" />
+        <input id="contacto-inp-contactar" type="checkbox" value="Contactar" [(ngModel)]="cRequest.contactar"
+            formControlName="contactar" name="contactar" />
     </div>
 
     <div>
         <label id="contacto-lbl-noticias" for="contacto-inp-noticias">
             ¿Deseas recibir noticias?
         </label>
-        <input id="contacto-inp-noticias" type="checkbox" value="Noticias" formControlName="noticias" name="noticias" />
+        <input id="contacto-inp-noticias" type="checkbox" value="Noticias" [(ngModel)]="cRequest.noticias"
+            formControlName="noticias" name="noticias" />
     </div>
 
     <div>
         <label id="contacto-lbl-propridad" for="contacto-inp-propridad">
             Prioridad del mensaje
         </label>
-        <select id="contacto-inp-propridad" formControlName="prioridad" name="prioridad">
+        <select id="contacto-inp-propridad" [(ngModel)]="cRequest.prioridad" formControlName="prioridad"
+            name="prioridad">
             <option value="0">Seleccione un elemento de la lista</option>
             <option value="1">Crítico</option>
             <option value="2">Alto</option>
