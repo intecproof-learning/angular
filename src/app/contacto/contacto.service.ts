@@ -39,8 +39,9 @@ export class ContactoService {
       this.httpOptions).pipe(catchError(this.errorHandler));
   }
 
-  delete(id: number) {
-    return this.httpClient.delete(this.apiURL + '' + id, this.httpOptions)
+  delete(requestID: number) {
+    return this.httpClient.delete(this.apiURL + 'api/contacto/eliminar/' + requestID
+    , this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
