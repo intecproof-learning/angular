@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Comandos de ayuda
+ng generate module productos --routing
+ng generate component productos/index
+ng generate service productos/producto
+ng generate interface productos/iproducto
+
+
+Para publicar
+ng build --configuration production
+
+/*Compilar en modo producción puede tardar un tiempo
+considerable, depende del tamaño del proyecto, paquetes
+utilizados y características de la máquina*/
+npm publish (Esto solicita un repositorio y autenticación)
+npm pack
