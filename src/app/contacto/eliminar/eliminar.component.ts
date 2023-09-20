@@ -45,10 +45,13 @@ export class EliminarComponent implements OnInit {
   }
 
   submit() {
-    console.log(this._form.value);
-    this.contactoService.delete(this.requestID).subscribe((res: any) => {
-      console.log('Elemento eliminado');
-      this.router.navigateByUrl('contacto/index');
-    });
+    if (confirm('¿Estás seguro de eliminar el elemento con ID: ' + this.requestID + '?')) {
+      console.log(this._form.value);
+      this.contactoService.delete(this.requestID).subscribe((res: any) => {
+        console.log('Elemento eliminado');
+        alert('Elemento eliminado')
+        this.router.navigateByUrl('contacto/index');
+      });
+    }
   }
 }

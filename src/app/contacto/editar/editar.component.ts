@@ -3,6 +3,7 @@ import { ContactoService } from '../contacto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Icontacto } from '../icontacto';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+declare function geolocalizar(): void;
 
 @Component({
   selector: 'app-editar',
@@ -41,6 +42,8 @@ export class EditarComponent implements OnInit {
       console.log(data);
       this.cRequest = data;
     });
+
+    geolocalizar();
   }
 
   get form() {
@@ -50,9 +53,9 @@ export class EditarComponent implements OnInit {
   submit() {
     console.log(this._form.value);
     this.contactoService.update(this.requestID, this._form.value).subscribe((res: any) => {
+      alert('Elemento actualizado')
       console.log('Elemento creado');
       this.router.navigateByUrl('contacto/index');
     });
   }
-
 }
